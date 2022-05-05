@@ -29,6 +29,7 @@ const friendData = [
     },
 ];
 
+    
 addMushroomButton.addEventListener('click', () => {
     if (Math.random() > 0.5) {
         alert('found a mushroom!');
@@ -49,7 +50,7 @@ addFriendButton.addEventListener('click', () => {
     friendData.push(newFriend);
     friendInputEl.value = '';
     displayFriends();
-    addFriendButton.reset();
+    
     // get the name from the input
     // create a new friend object
     // push it into the friends state array, passed in as an argument
@@ -79,30 +80,31 @@ function displayFriends() {
         });
         friendsEl.append(friendElList);
     }
+    // use renderFriend to make a friendEl
+    
+    // this is a clickable list, so . . .
+    //     add an event listener to each friend
+    //         and if the friend's satisfaction level is below 3 and you have mushrooms left
+    //             increment the friends satisfaction and decrement your mushrooms
+    //             then display your friends and mushrooms with the updated state
+    
 
 
             
 
-        
-
-// use renderFriend to make a friendEl
-
-// this is a clickable list, so . . .
-//     add an event listener to each friend
-//         and if the friend's satisfaction level is below 3 and you have mushrooms left
-//             increment the friends satisfaction and decrement your mushrooms
-//             then display your friends and mushrooms with the updated state
-
-// append the friendEl to the friends list in DOM
-
-    function displayMushrooms() {
-    // clear out the mushroom div
-    
-        for (let i = 0; i < mushroomCount; i++) {
-        // for each mushroom in your mushroom state, render and append a mushroom
-        }
-    }
-
-    displayFriends();
-    displayMushrooms();
 }
+
+
+    
+function displayMushrooms() {
+    mushroomsEl.textContent = '';
+        
+        
+    for (let i = 0; i < mushroomCount; i++) {
+        const mushEl = renderMushroom(i);
+        mushroomsEl.append(mushEl);
+    }
+    
+}
+displayFriends();
+displayMushrooms();
